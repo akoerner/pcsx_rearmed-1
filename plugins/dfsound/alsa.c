@@ -78,6 +78,7 @@ static int alsa_init(void)
     exit(1);
   }
 
+                printf("13371773\n");
                 printf("Soundcard :\n");
                 printf("  card - %i\n", snd_ctl_card_info_get_card(info));
                 printf("  id - '%s'\n", snd_ctl_card_info_get_id(info));
