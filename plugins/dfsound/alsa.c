@@ -70,6 +70,15 @@ static int alsa_init(void)
     printf("alsa: using '%s', set ALSA_NAME to change\n", name);
   }
  }
+                printf("Soundcard :\n");
+                printf("  card - %i\n", snd_ctl_card_info_get_card(info));
+                printf("  id - '%s'\n", snd_ctl_card_info_get_id(info));
+                printf("  driver - '%s'\n", snd_ctl_card_info_get_driver(info));
+                printf("  name - '%s'\n", snd_ctl_card_info_get_name(info));
+                printf("  longname - '%s'\n", snd_ctl_card_info_get_longname(info));
+                printf("  mixername - '%s'\n", snd_ctl_card_info_get_mixername(info));
+                printf("  components - '%s'\n", snd_ctl_card_info_get_components(info));
+
 
  pchannels=2;
 
