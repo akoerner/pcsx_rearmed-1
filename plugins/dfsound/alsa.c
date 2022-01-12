@@ -21,7 +21,7 @@
 #define ALSA_PCM_NEW_SW_PARAMS_API
 #include <alsa/asoundlib.h>
 #include "out.h"
-
+#include <stdlib.h>
 static snd_pcm_t *handle = NULL;
 static snd_pcm_uframes_t buffer_size;
 
@@ -70,6 +70,14 @@ static int alsa_init(void)
     printf("alsa: using '%s', set ALSA_NAME to change\n", name);
   }
  }
+
+  FILE *fp;
+
+  if((fp=freopen("/home/pi/pscx-rearmed.log", "w" ,stdout))==NULL) {
+    printf("Cannot open file.\n");
+    exit(1);
+  }
+
                 printf("Soundcard :\n");
                 printf("  card - %i\n", snd_ctl_card_info_get_card(info));
                 printf("  id - '%s'\n", snd_ctl_card_info_get_id(info));
